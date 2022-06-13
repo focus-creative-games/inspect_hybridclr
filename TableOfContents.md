@@ -13,7 +13,7 @@
   - il2cpp metadata （此节内容极其庞大）
     - CLI metadata 简略介绍
     - il2cpp metadata 初始化流程剖析
-    - persistent metadata 即 global-metadata.data 介绍
+    - persistent metadata 即 global-metadata.dat 介绍
     - runtime metadata 介绍
   - il2cpp IL to c++ 代码的转换
     - 基础指令集
@@ -42,20 +42,49 @@
 
 ## Inspect huatuo 目录
 
-- huatuo 序章
-  - huatuo基础知识及原理介绍
-  - huatuo的框架结构
-- metadata
-  - metadata 加载
-  - metadata动态注册
-    - 类型注册
-    - generic class and method处理
-    - 桥接函数签名
-- interpreter
-  - 寄存器指令集设计
-  - transform实现
-    - 基础实现
-    - 指令集优化
+- 1 导论
+  - 手游热更新技术的发展史
+  - 当前主流热更新技术的缺陷
+  - 下一代热更新技术探索——unity引擎下的原生c#热更新技术
+- 2 huatuo概览
+  - 1 huatuo介绍
+  - 2 [关于huatuo可行性的思维实验](./2.1.2_%E5%85%B3%E4%BA%8Ehuatuo%E5%8F%AF%E8%A1%8C%E6%80%A7%E7%9A%84%E6%80%9D%E7%BB%B4%E5%AE%9E%E9%AA%8C.md)
+  - 2 huatuo源码实现概览
+- 3 metadata 加载
+  - 1 coff文件解析
+  - 2 stream 解析
+  - 3 原始tables解析
+  - 4 复杂元数据解析
+- 4 metadata 注册
+  - 1 assembly 注册
+  - 2 TypeDefinition 注册（复杂）
+  - 3 generic class
+  - 4 generic method
+  - 5 桥接函数
+- 5 寄存器指令集设计
+  - IL指令集介绍
+  - 基于栈的指令集的缺陷
+  - 寄存器指令集
+    - 基础转换规则
+    - 指令静态特例化
+    - resolve data
+    - 其他特殊处理
+  - 一些用于解释器JIT技术
+    - InitOnce JIT优化技术
+- 6 指令集transform实现
+  - 基础思路介绍
+  - transform算法
+    - basic block划分
+    - 基于basic block的指令流遍历及转换
+    - 普通指令
+    - 函数调用指令
+    - branch相关指令
+    - 异常相关指令
+  - 指令集优化
+    - 指令合并
+    - ValueType相关指令优化
+    - 函数inline
+    - instinct函数替换
   - virtual Execution System
     - Thread Interpreter Stack
     - Interpreter Frame实现与优化
@@ -66,9 +95,14 @@
     - reflection相关实现
     - extern函数实现
   - 跨平台兼容性处理
-    - 内存对齐
-    - x86与arm系列的abi差别
     - 32位与64位
+    - 内存对齐访问
+    - x86与arm系列区别
+      - float与int之间转换
+      - abi
+    - 虚拟地址空间差异
+    - 一些行为不定的函数
+      - memcpy
   - AOT泛型 （基于补充元数据的泛型实例化技术）
   - AOT hotfix实现
 - misc
