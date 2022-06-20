@@ -47,9 +47,9 @@
   - 当前主流热更新技术的缺陷
   - 下一代热更新技术探索——unity引擎下的原生c#热更新技术
 - 2 huatuo概览
-  - 1 huatuo介绍
+  - 1 [huatuo介绍](./2.1.1_huatuo%E4%BB%8B%E7%BB%8D.md)
   - 2 [关于huatuo可行性的思维实验](./2.1.2_%E5%85%B3%E4%BA%8Ehuatuo%E5%8F%AF%E8%A1%8C%E6%80%A7%E7%9A%84%E6%80%9D%E7%BB%B4%E5%AE%9E%E9%AA%8C.md)
-  - 2 huatuo源码实现概览
+  - 3 huatuo源码实现概览
 - 3 metadata 加载
   - 1 coff文件解析
   - 2 stream 解析
