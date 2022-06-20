@@ -49,7 +49,7 @@
 - 2 huatuo概览
   - 1 [huatuo介绍](./2.1.1_huatuo%E4%BB%8B%E7%BB%8D.md)
   - 2 [关于huatuo可行性的思维实验](./2.1.2_%E5%85%B3%E4%BA%8Ehuatuo%E5%8F%AF%E8%A1%8C%E6%80%A7%E7%9A%84%E6%80%9D%E7%BB%B4%E5%AE%9E%E9%AA%8C.md)
-  - 3 huatuo源码实现概览
+  - 3 [huatuo技术原理剖析](./2.1.3_huatuo%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.md)
 - 3 metadata 加载
   - 1 coff文件解析
   - 2 stream 解析
